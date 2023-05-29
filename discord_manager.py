@@ -1,7 +1,10 @@
 import requests
 from secrets_1 import token_secret
-import random
-work_ti = '875294338622570587' # for sanity testing
+import os
+
+work_ti = '875294338622570587' # same channel id between ti and work_ti dm
+disc_habitica_chat = '875294338622570587'
+forward_to = disc_habitica_chat if os.getenv("ENV") == "PRD" else work_ti
 
 def get_channel_api_string(channel_id: int):
     channel_string_start = "https://discord.com/api/v9/channels/"
@@ -30,4 +33,6 @@ def sendMessage(channelID: str, payload: str, authToken: str=token_secret):
 
 def fwdToDiscordParty(formatted: str, unformattedVersion:str, sender: str):
     message = f'```\n{unformattedVersion}```*-{sender}*'
-    sendMessage(work_ti, message)
+    sendMessage(forward_to, message)
+
+sendMessage(forward_to, "hello world")
