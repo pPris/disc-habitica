@@ -3,7 +3,7 @@ from secrets_1 import token_secret
 import os
 
 work_ti = '875294338622570587' # same channel id between ti and work_ti dm
-disc_habitica_chat = '875294338622570587'
+disc_habitica_chat = '1111197485516455977'
 forward_to = disc_habitica_chat if os.getenv("ENV") == "PRD" else work_ti
 
 def get_channel_api_string(channel_id: int):
