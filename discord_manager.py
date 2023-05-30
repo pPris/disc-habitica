@@ -35,4 +35,4 @@ def fwdToDiscordParty(formatted: str, unformattedVersion:str, sender: str):
     message = f'```\n{unformattedVersion}```*-{sender}*'
     sendMessage(forward_to, message)
 
-sendMessage(forward_to, "ti's hrpg-discord bot going online 💻")
+sendMessage(work_ti, "ti's hrpg-discord bot going online 💻 env: " +os.getenv("ENV"))

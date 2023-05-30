@@ -6,6 +6,13 @@ app = Flask(__name__)
 def home():
     return 'Hello world', 200
 
+@app.route('/quest', methods=['POST'])
+def quest_webhook():
+    res = request.json
+    print(res)
+    # todo
+    return 'Received quest webhook event', 200
+
 # URI for receiving inbound webhook request
 @app.route('/', methods=['POST'])
 def webhook():
@@ -29,7 +36,7 @@ def webhook():
  
     return '', 200 # Return 200 code to the sending webserver
     
- 
+
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=False)
     # app.run(host='0.0.0.0', port='<your_port>')
